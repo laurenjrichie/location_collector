@@ -10,6 +10,17 @@ function initialize() {
   mapOptions);
   var array = [];
   google.maps.event.addListener(map,'click',function(event) {
+    
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+      map: map,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 5,
+      }
+    });
+    
+    
     var coordinates = [event.latLng.lat() + ', ' + event.latLng.lng()];
     array.push(coordinates);
     console.log(array);
